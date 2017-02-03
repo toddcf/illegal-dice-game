@@ -1,46 +1,69 @@
 /*
 GAME RULES:
 
-- The game has 2 players, playing in rounds
-- In each turn, a player rolls a dice as many times as he whishes. Each result get added to his ROUND score
-- BUT, if the player rolls a 1, all his ROUND score gets lost. After that, it's the next player's turn
-- The player can choose to 'Hold', which means that his ROUND score gets added to his GLBAL score. After that, it's the next player's turn
-- The first player to reach 100 points on GLOBAL score wins the game
+- The game has 2 players, playing in rounds.
+- In each turn, a player rolls a die as many times as he whishes. Each result get added to his ROUND score.
+- BUT, if the player rolls a 1, all his ROUND score gets lost. After that, it's the next player's turn.
+- The player can choose to 'Hold', which means that his ROUND score gets added to his GLBAL score. After that, it's the next player's turn.
+- The first player to reach 100 points on GLOBAL score wins the game.
 
 */
 
-// Helper function to generate random number between 1 and 6.
-// var player = player 0.
+// var name0Global = 0;
+// var name1Global = 0;
+// var activePlayer;
 
-// Game Function
+// Helper function to generate random number between 1 and 6 and store it in variable "randomNumber":
+
+// Switch player function:
+	// If activePlayer = name-0:
+		// Set player = name-1.
+	// Else if activePlayer = name-1:
+		// Set player = name-0.
+
+// newGame Function
+
+	// For each new game, have Player 1 go first:
+		// activePlayer = name-0.
 
 	// On ROLL DICE click:
-		// Call random number helper function and store in local variable.
-		// If number is between 2 and 6:
-			// Player 0 ROUND SCORE is increased by that number.
-		// Else if number is 1:
-			// Player 0 GLOBAL SCORE is reset to 0.
+		// Call random number helper function and store it in a local variable:
+			// var randomNumber = getRandomNumber();
+		// Switch statement:
+			// Switch 1: randomNumber === 1:
+				// Display dice-1.
+				// activePlayer GLOBAL SCORE is reset to 0.
+				// Call SWITCH PLAYER function.
+				// Break;
+			// Switch 2: randomNumber === 2:
+				// Display dice-2.
+				// activePlayer ROUND SCORE = ROUND SCORE + 2.
+				// Break;
+			// Switch 3: randomNumber === 3:
+				// Display dice-3.
+				// activePlayer ROUND SCORE = ROUND SCORE + 3.
+				// Break;
+			// Switch 4:
+				// Display dice-4.
+				// activePlayer ROUND SCORE = ROUND SCORE + 4.
+				// Break;
+			// Switch 5:
+				// Display dice-5.
+				// activePlayer ROUND SCORE = ROUND SCORE + 5.
+				// Break;
+			// Switch 6:
+				// Display dice-6.
+				// activePlayer ROUND SCORE = ROUND SCORE + 6.
+				// Break;
 
 	// On HOLD click:
 		// Add ROUND SCORE to ACTIVE PLAYER's GLOBAL SCORE.
-		// switch to other player:
-			// If player = player 0:
-				// Set player = player 1.
-			// Else if player = player 1:
-				// Set player = player 0.
+		// Check if activePlayer won:
+			// If activePlayer's GLOBAL SCORE >= 100:
+				// activePlayer wins!
+			// Else:
+				// Call SWITCH PLAYER function.
 
-	// Function to display dice img of number that was rolled.
-		// Switch 1:
-			// Display dice-1.
-		// Switch 2:
-			// Display dice-2.
-		// Switch 3:
-			// Display dice-3.
-		// Switch 4:
-			// Display dice-4.
-		// Switch 5:
-			// Display dice-5.
-		// Switch 6:
-			// Display dice-6.
+// On NEW GAME click, call newGame function.
 
-// On NEW GAME click, call game function.
+// Call newGame function to start first game.
