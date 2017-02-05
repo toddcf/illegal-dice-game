@@ -15,14 +15,21 @@ var scores = [0, 0];
 var roundScore = 0;
 // Active Player: the first player is 0 in the array, and the second player is 1 in the array. Set to 0 to begin:
 var activePlayer = 0;
-// Generate a random number between 1 and 6 and store it in a variable called dice:
-var dice = Math.floor(Math.random() * 6) + 1;
 
 // Select activePlayer's current score display and set it to the value of the DICE variable:
 document.querySelector("#current-" + activePlayer).textContent = dice;
 
 // Hide the dice img before the dice are rolled for the first time:
 document.querySelector(".dice").style.display = "none";
+
+// Event Handler for ROLL DICE button clicks:
+// The first argument ("click") is the type of event it's listening for.
+// The second argument is the function (anonymous, in this case) that will be called when this event happens.
+document.querySelector(".btn-roll").addEventListener("click", function() {
+	// Generate a random number between 1 and 6 and store it in a variable called dice:
+	var dice = Math.floor(Math.random() * 6) + 1;
+
+});
 
 // Switch player function:
 	// If activePlayer = name-0:
