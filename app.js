@@ -18,8 +18,8 @@ var activePlayer = 0;
 // Generate a random number between 1 and 6 and store it in a variable called dice:
 var dice = Math.floor(Math.random() * 6) + 1;
 
-// Select Player 1's current score display and set it to the value of the DICE variable:
-document.querySelector("#current-0").textContent = dice;
+// Select activePlayer's current score display and set it to the value of the DICE variable:
+document.querySelector("#current-" + activePlayer).textContent = dice;
 
 // Switch player function:
 	// If activePlayer = name-0:
