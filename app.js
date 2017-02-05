@@ -21,6 +21,9 @@ var dice = Math.floor(Math.random() * 6) + 1;
 // Select activePlayer's current score display and set it to the value of the DICE variable:
 document.querySelector("#current-" + activePlayer).textContent = dice;
 
+// Hide the dice img before the dice are rolled for the first time:
+document.querySelector(".dice").style.display = "none";
+
 // Switch player function:
 	// If activePlayer = name-0:
 		// Set player = name-1.
