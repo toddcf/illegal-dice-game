@@ -13,3 +13,4 @@ FUTURE ITERATIONS:
 - Add link to my portfolio.
 - Add link to my GitHub.
 - Add favicon.
+- Debug: Three logos are showing up on my local machine but not on Heroku.
