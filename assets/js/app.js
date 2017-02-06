@@ -104,5 +104,11 @@ function init() {
 	// Reset player names, in case one was changed to WINNER last time:
 	document.getElementById("name-0").textContent 		= "Player 1";
 	document.getElementById("name-1").textContent 		= "Player 2";
+	// Remove WINNER class from both players, just to be safe:
+	document.querySelector(".player-0-panel").classList.remove("winner");
+	document.querySelector(".player-1-panel").classList.remove("winner");
+	// Remove ACTIVE class from both players, just to be safe:
+	document.querySelector(".player-0-panel").classList.remove("active");
+	document.querySelector(".player-1-panel").classList.remove("active");
 }
 
