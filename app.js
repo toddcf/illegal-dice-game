@@ -46,18 +46,10 @@ document.querySelector(".btn-roll").addEventListener("click", function() {
 		roundScore += dice;
 		document.querySelector("#current-" + activePlayer).textContent = roundScore;
 	}
-	// If it WAS 1, reset roundScore to zero.
+	// If it WAS 1:
 	else {
-		activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
-		roundScore = 0;
-		// Reset both players' CURRENT scores to zero:
-		document.getElementById("current-0").textContent = 0;
-		document.getElementById("current-1").textContent = 0;
-		// Toggle the ACTIVE class between the two players. (Default begins with player 0 as ACTIVE.)
-		document.querySelector(".player-0-panel").classList.toggle("active");
-		document.querySelector(".player-1-panel").classList.toggle("active");
-
-		document.querySelector(".dice").style.display = "none";
+		// Toggle to other player:
+		nextPlayer();
 	}
 });
 
@@ -68,7 +60,24 @@ document.querySelector(".btn-hold").addEventListener("click", function() {
 	// Update UI to show new score:
 	document.querySelector("#score-" + activePlayer).textContent = scores[activePlayer];
 	// Check if player won game:
+
+	// Toggle to other player:
+	nextPlayer();
 });
+
+// Function to toggle between players when either a 1 is rolled or HOLD is clicked:
+function nextPlayer() {
+	activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
+	roundScore = 0;
+	// Reset both players' CURRENT scores to zero:
+	document.getElementById("current-0").textContent = 0;
+	document.getElementById("current-1").textContent = 0;
+	// Toggle the ACTIVE class between the two players. (Default begins with player 0 as ACTIVE.)
+	document.querySelector(".player-0-panel").classList.toggle("active");
+	document.querySelector(".player-1-panel").classList.toggle("active");
+
+	document.querySelector(".dice").style.display = "none";
+}
 
 // Switch player function:
 	// If activePlayer = name-0:
