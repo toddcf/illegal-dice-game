@@ -40,7 +40,7 @@ document.querySelector(".btn-roll").addEventListener("click", function() {
 	// Un-hide the dice image:
 	diceDOM.style.display = "block";
 	// Set the dice image to be the one corresponding to the random number that was generated:
-	diceDOM.src = "dice-" + dice + ".png";
+	diceDOM.src = "assets/img/dice-" + dice + ".png";
 	// Update the roundScore IF the rolled number was NOT 1.
 	if (dice !== 1) {
 		roundScore += dice;
