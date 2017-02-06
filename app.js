@@ -59,10 +59,20 @@ document.querySelector(".btn-hold").addEventListener("click", function() {
 	scores[activePlayer] += roundScore;
 	// Update UI to show new score:
 	document.querySelector("#score-" + activePlayer).textContent = scores[activePlayer];
-	// Check if player won game:
-
-	// Toggle to other player:
-	nextPlayer();
+	// If player won game:
+	if (scores[activePlayer] > 99) {
+		// Replace Player Name with the word WINNER:
+		document.querySelector("#name-" + activePlayer).textContent = "Winner!";
+		// Remove the img of the die:
+		document.querySelector(".dice").style.display = "none";
+		// Add WINNER class to activePlayer:
+		document.querySelector(".player-" + activePlayer + "-panel").classList.add("winner");
+		// Remove ACTIVE class from winner:
+		document.querySelector(".player-" + activePlayer + "-panel").classList.remove("active");
+	} else {
+		// Toggle to other player:
+		nextPlayer();
+	}
 });
 
 // Function to toggle between players when either a 1 is rolled or HOLD is clicked:
