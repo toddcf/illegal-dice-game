@@ -9,14 +9,8 @@ GAME RULES:
 
 */
 
-// Create an array to hold both players' scores (index 0 for Player 1, index 1 for Player 2).
-// Each set to zero to start.
-// Array stored in a variable called SCORES.
-var scores = [0, 0];
-// One variable for the round score, since we only have one round score at a time:
-var roundScore = 0;
-// Active Player: Player 1 is 0 in the array, and Player 2 is 1 in the array. Set to 0 to begin:
-var activePlayer = 0;
+// Declare all variables up front:
+var scores, roundScore, activePlayer;
 
 // Call the function that INITIALIZES the game:
 init();
@@ -53,7 +47,7 @@ document.querySelector(".btn-hold").addEventListener("click", function() {
 	// Update UI to show new score:
 	document.querySelector("#score-" + activePlayer).textContent = scores[activePlayer];
 	// If player won game:
-	if (scores[activePlayer] > 10) {
+	if (scores[activePlayer] > 9) {
 		// Replace Player Name with the word WINNER:
 		document.querySelector("#name-" + activePlayer).textContent = "Winner!";
 		// Remove the img of the die:
@@ -87,6 +81,9 @@ document.querySelector(".btn-new").addEventListener("click", init);
 
 // Function to INITIALIZE game:
 function init() {
+	// This array holds both players' scores (index 0 for Player 1, index 1 for Player 2):
+	// Each set to zero to start.
+	// Array stored in the SCORES variable.
 	scores = [0, 0];
 	// One variable for the round score, since we only have one round score at a time:
 	roundScore = 0;
