@@ -42,11 +42,12 @@ document.querySelector(".btn-roll").addEventListener("click", function() {
 	// Set the dice image to be the one corresponding to the random number that was generated:
 	diceDOM.src = "dice-" + dice + ".png";
 	// Update the roundScore IF the rolled number was NOT 1.
-	if (dice > 1) {
-		// Add score
+	if (dice !== 1) {
+		roundScore += dice;
+		document.querySelector("#current-" + activePlayer).textContent = roundScore;
 	}
 	else {
-		// Next player.
+		activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
 	}
 });
 
