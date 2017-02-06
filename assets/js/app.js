@@ -9,7 +9,7 @@ GAME RULES:
 
 */
 
-// An array to hold both players' scores (index 0 for Player 1, index 1 for Player 2).
+// Create an array to hold both players' scores (index 0 for Player 1, index 1 for Player 2).
 // Each set to zero to start.
 // Array stored in a variable called SCORES.
 var scores = [0, 0];
@@ -18,15 +18,8 @@ var roundScore = 0;
 // Active Player: Player 1 is 0 in the array, and Player 2 is 1 in the array. Set to 0 to begin:
 var activePlayer = 0;
 
-// Hide the dice img before the dice are rolled for the first time:
-document.querySelector(".dice").style.display = "none";
-
-// Display Global Scores as zero for both players:
-document.getElementById("score-0").textContent = "0";
-document.getElementById("score-1").textContent = "0";
-// Display Current Scores as zero for both players:
-document.getElementById("current-0").textContent = "0";
-document.getElementById("current-1").textContent = "0";
+// Call the function that INITIALIZES the game:
+init();
 
 // Event Listener for ROLL DICE button clicks:
 // The first argument is the type of event it's listening for, which is a "click".
@@ -89,55 +82,27 @@ function nextPlayer() {
 	document.querySelector(".dice").style.display = "none";
 }
 
-// Switch player function:
-	// If activePlayer = name-0:
-		// Set player = name-1.
-	// Else if activePlayer = name-1:
-		// Set player = name-0.
+// Event Listener for NEW GAME button, which calls the INIT function:
+document.querySelector(".btn-new").addEventListener("click", init);
 
-// newGame Function
+// Function to INITIALIZE game:
+function init() {
+	scores = [0, 0];
+	// One variable for the round score, since we only have one round score at a time:
+	roundScore = 0;
+	// Active Player: Player 1 is 0 in the array, and Player 2 is 1 in the array. Set to 0 to begin:
+	activePlayer = 0;
+	// Hide the dice img before the dice are rolled for the first time:
+	document.querySelector(".dice").style.display 		= "none";
 
-	// For each new game, have Player 1 go first:
-		// activePlayer = name-0.
+	// Display Global Scores as zero for both players:
+	document.getElementById("score-0").textContent 		= "0";
+	document.getElementById("score-1").textContent 		= "0";
+	// Display Current Scores as zero for both players:
+	document.getElementById("current-0").textContent 	= "0";
+	document.getElementById("current-1").textContent 	= "0";
+	// Reset player names, in case one was changed to WINNER last time:
+	document.getElementById("name-0").textContent 		= "Player 1";
+	document.getElementById("name-1").textContent 		= "Player 2";
+}
 
-	// On ROLL DICE click:
-		// Call random number helper function and store it in a local variable:
-			// var randomNumber = getRandomNumber();
-		// Switch statement:
-			// Switch 1: randomNumber === 1:
-				// Display dice-1.
-				// activePlayer GLOBAL SCORE is reset to 0.
-				// Call SWITCH PLAYER function.
-				// Break;
-			// Switch 2: randomNumber === 2:
-				// Display dice-2.
-				// activePlayer ROUND SCORE = ROUND SCORE + 2.
-				// Break;
-			// Switch 3: randomNumber === 3:
-				// Display dice-3.
-				// activePlayer ROUND SCORE = ROUND SCORE + 3.
-				// Break;
-			// Switch 4:
-				// Display dice-4.
-				// activePlayer ROUND SCORE = ROUND SCORE + 4.
-				// Break;
-			// Switch 5:
-				// Display dice-5.
-				// activePlayer ROUND SCORE = ROUND SCORE + 5.
-				// Break;
-			// Switch 6:
-				// Display dice-6.
-				// activePlayer ROUND SCORE = ROUND SCORE + 6.
-				// Break;
-
-	// On HOLD click:
-		// Add ROUND SCORE to ACTIVE PLAYER's GLOBAL SCORE.
-		// Check if activePlayer won:
-			// If activePlayer's GLOBAL SCORE >= 100:
-				// activePlayer wins!
-			// Else:
-				// Call SWITCH PLAYER function.
-
-// On NEW GAME click, call newGame function.
-
-// Call newGame function to start first game.
