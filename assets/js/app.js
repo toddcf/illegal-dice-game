@@ -107,7 +107,8 @@ function init() {
 	// Remove WINNER class from both players, just to be safe:
 	document.querySelector(".player-0-panel").classList.remove("winner");
 	document.querySelector(".player-1-panel").classList.remove("winner");
-	// Add ACTIVE class to Player 1:
+	// Remove then add ACTIVE class to Player 1 (to avoid adding ACTIVE upon ACTIVE):
+	document.querySelector(".player-0-panel").classList.remove("active");
 	document.querySelector(".player-0-panel").classList.add("active");
 	// Remove ACTIVE class from Player 2:
 	document.querySelector(".player-1-panel").classList.remove("active");
