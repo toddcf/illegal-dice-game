@@ -56,6 +56,8 @@ document.querySelector(".btn-roll").addEventListener("click", function() {
 		// Toggle the ACTIVE class between the two players. (Default begins with player 0 as ACTIVE.)
 		document.querySelector(".player-0-panel").classList.toggle("active");
 		document.querySelector(".player-1-panel").classList.toggle("active");
+
+		document.querySelector(".dice").style.display = "none";
 	}
 });
 
