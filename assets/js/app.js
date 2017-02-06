@@ -10,7 +10,7 @@ GAME RULES:
 */
 
 // Declare all variables up front:
-var scores, roundScore, activePlayer;
+var scores, roundScore, activePlayer, gamePlaying;
 
 // Call the function that INITIALIZES the game:
 init();
@@ -19,46 +19,51 @@ init();
 // The first argument is the type of event it's listening for, which is a "click".
 // The second argument is the function that will be called when this event happens, which in this case is an anonymous function because it will only be used inside this event listener.
 document.querySelector(".btn-roll").addEventListener("click", function() {
-	// Generate a random number between 1 and 6 and store it in a variable called dice:
-	var dice = Math.floor(Math.random() * 6) + 1;
-	// Display the result:
-	// First store the selector in a variable so you don't have to keep writing out the entire selector over and over:
-	var diceDOM = document.querySelector(".dice");
-	// Un-hide the dice image:
-	diceDOM.style.display = "block";
-	// Set the dice image to be the one corresponding to the random number that was generated:
-	diceDOM.src = "assets/img/dice-" + dice + ".png";
-	// Update the roundScore IF the rolled number was NOT 1.
-	if (dice !== 1) {
-		roundScore += dice;
-		document.querySelector("#current-" + activePlayer).textContent = roundScore;
-	}
-	// If it WAS 1:
-	else {
-		// Toggle to other player:
-		nextPlayer();
+	if (gamePlaying) {
+		// Generate a random number between 1 and 6 and store it in a variable called dice:
+		var dice = Math.floor(Math.random() * 6) + 1;
+		// Display the result:
+		// First store the selector in a variable so you don't have to keep writing out the entire selector over and over:
+		var diceDOM = document.querySelector(".dice");
+		// Un-hide the dice image:
+		diceDOM.style.display = "block";
+		// Set the dice image to be the one corresponding to the random number that was generated:
+		diceDOM.src = "assets/img/dice-" + dice + ".png";
+		// Update the roundScore IF the rolled number was NOT 1.
+		if (dice !== 1) {
+			roundScore += dice;
+			document.querySelector("#current-" + activePlayer).textContent = roundScore;
+		}
+		// If it WAS 1:
+		else {
+			// Toggle to other player:
+			nextPlayer();
+		}
 	}
 });
 
 // Event Listener for HOLD button clicks:
 document.querySelector(".btn-hold").addEventListener("click", function() {
-	// Add current score to active player's global score:
-	scores[activePlayer] += roundScore;
-	// Update UI to show new score:
-	document.querySelector("#score-" + activePlayer).textContent = scores[activePlayer];
-	// If player won game:
-	if (scores[activePlayer] > 9) {
-		// Replace Player Name with the word WINNER:
-		document.querySelector("#name-" + activePlayer).textContent = "Winner!";
-		// Remove the img of the die:
-		document.querySelector(".dice").style.display = "none";
-		// Add WINNER class to activePlayer:
-		document.querySelector(".player-" + activePlayer + "-panel").classList.add("winner");
-		// Remove ACTIVE class from winner:
-		document.querySelector(".player-" + activePlayer + "-panel").classList.remove("active");
-	} else {
-		// Toggle to other player:
-		nextPlayer();
+	if (gamePlaying) {
+		// Add current score to active player's global score:
+		scores[activePlayer] += roundScore;
+		// Update UI to show new score:
+		document.querySelector("#score-" + activePlayer).textContent = scores[activePlayer];
+		// If player won game:
+		if (scores[activePlayer] > 99) {
+			// Replace Player Name with the word WINNER:
+			document.querySelector("#name-" + activePlayer).textContent = "Winner!";
+			// Remove the img of the die:
+			document.querySelector(".dice").style.display = "none";
+			// Add WINNER class to activePlayer:
+			document.querySelector(".player-" + activePlayer + "-panel").classList.add("winner");
+			// Remove ACTIVE class from winner:
+			document.querySelector(".player-" + activePlayer + "-panel").classList.remove("active");
+			gamePlaying = false;
+		} else {
+			// Toggle to other player:
+			nextPlayer();
+		}
 	}
 });
 
@@ -89,6 +94,8 @@ function init() {
 	roundScore = 0;
 	// Active Player: Player 1 is 0 in the array, and Player 2 is 1 in the array. Set to 0 to begin:
 	activePlayer = 0;
+	// Set this STATE VARIABLE to TRUE so the system knows a game is in progress:
+	gamePlaying = true;
 	// Hide the dice img before the dice are rolled for the first time:
 	document.querySelector(".dice").style.display 		= "none";
 
