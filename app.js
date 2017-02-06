@@ -28,7 +28,7 @@ document.getElementById("score-1").textContent = "0";
 document.getElementById("current-0").textContent = "0";
 document.getElementById("current-1").textContent = "0";
 
-// Event Handler for ROLL DICE button clicks:
+// Event Listener for ROLL DICE button clicks:
 // The first argument is the type of event it's listening for, which is a "click".
 // The second argument is the function that will be called when this event happens, which in this case is an anonymous function because it will only be used inside this event listener.
 document.querySelector(".btn-roll").addEventListener("click", function() {
@@ -59,6 +59,15 @@ document.querySelector(".btn-roll").addEventListener("click", function() {
 
 		document.querySelector(".dice").style.display = "none";
 	}
+});
+
+// Event Listener for HOLD button clicks:
+document.querySelector(".btn-hold").addEventListener("click", function() {
+	// Add current score to active player's global score:
+	scores[activePlayer] += roundScore;
+	// Update UI to show new score:
+	document.querySelector("#score-" + activePlayer).textContent = scores[activePlayer];
+	// Check if player won game:
 });
 
 // Switch player function:
