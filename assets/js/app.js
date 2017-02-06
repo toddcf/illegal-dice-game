@@ -53,7 +53,7 @@ document.querySelector(".btn-hold").addEventListener("click", function() {
 	// Update UI to show new score:
 	document.querySelector("#score-" + activePlayer).textContent = scores[activePlayer];
 	// If player won game:
-	if (scores[activePlayer] > 99) {
+	if (scores[activePlayer] > 10) {
 		// Replace Player Name with the word WINNER:
 		document.querySelector("#name-" + activePlayer).textContent = "Winner!";
 		// Remove the img of the die:
@@ -107,6 +107,8 @@ function init() {
 	// Remove WINNER class from both players, just to be safe:
 	document.querySelector(".player-0-panel").classList.remove("winner");
 	document.querySelector(".player-1-panel").classList.remove("winner");
+	// Add ACTIVE class to Player 1:
+	document.querySelector(".player-0-panel").classList.add("active");
 	// Remove ACTIVE class from Player 2:
 	document.querySelector(".player-1-panel").classList.remove("active");
 }
