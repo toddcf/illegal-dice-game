@@ -1,5 +1,6 @@
 // Declare all variables up front:
 var scores, roundScore, activePlayer, gamePlaying, previousRoll;
+var winningScore = 100;
 
 // Call the function that INITIALIZES the game:
 init();
@@ -47,7 +48,7 @@ document.querySelector(".btn-hold").addEventListener("click", function() {
 		// Update UI to show new score:
 		document.querySelector("#score-" + activePlayer).textContent = scores[activePlayer];
 		// If player won game:
-		if (scores[activePlayer] > 99) {
+		if (scores[activePlayer] >= winningScore) {
 			// Replace Player Name with the word WINNER:
 			document.querySelector("#name-" + activePlayer).textContent = "Winner!";
 			// Remove the img of the die:

@@ -20,5 +20,6 @@ FUTURE ITERATIONS:
 
 - Add link to my portfolio.
 - Add link to my GitHub.
+- Add gameplay instructions to HTML.
 - Add an input field to the HTML where players can set the winning score. (Look up .value property in JavaScript.)
 - Make the game have TWO dice. The player's current score is set to zero if either of the dice rolls a 1. (Use HTML and CSS to position the two dice.)
