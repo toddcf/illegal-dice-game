@@ -12,6 +12,7 @@ NEW CODING SKILLS LEARNED:
 
 - Ternary operators.
 - State variables.
+- querySelectors.
 
 FUTURE ITERATIONS:
 
