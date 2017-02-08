@@ -27,13 +27,14 @@ document.querySelector(".btn-roll").addEventListener("click", function() {
 		else if (dice !== 1) {
 			roundScore += dice;
 			document.querySelector("#current-" + activePlayer).textContent = roundScore;
-			previousRoll = dice;
 		}
 		// If it WAS 1:
 		else {
 			// Toggle to other player:
 			nextPlayer();
 		}
+		// Save this roll so it can be checked against the next roll:
+		previousRoll = dice;
 	}
 });
 
