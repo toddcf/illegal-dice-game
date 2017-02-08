@@ -8,6 +8,11 @@ GAME RULES:
 - The player can choose to 'Hold', which means that their ROUND score gets added to their GLOBAL score.  After that, it's the next player's turn.
 - The first player to reach 100 points in their GLOBAL score wins the game.
 
+NEW SKILLS LEARNED:
+
+- Ternary operators.
+- State variables.
+
 FUTURE ITERATIONS:
 
 - Add link to my portfolio.
