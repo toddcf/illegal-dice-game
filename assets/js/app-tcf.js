@@ -1,3 +1,5 @@
+// This is my original pseudo code for the game logic:
+
 /*
 GAME RULES:
 

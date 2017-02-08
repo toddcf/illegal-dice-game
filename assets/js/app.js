@@ -1,5 +1,5 @@
 // Declare all variables up front:
-var scores, roundScore, activePlayer, gamePlaying;
+var scores, roundScore, activePlayer, gamePlaying, previousRoll;
 
 // Call the function that INITIALIZES the game:
 init();
