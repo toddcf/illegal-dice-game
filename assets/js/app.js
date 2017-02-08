@@ -21,6 +21,7 @@ document.querySelector(".btn-roll").addEventListener("click", function() {
 		// If two sixes are rolled in a row, reset activePlayer's scores and switch to nextPlayer:
 		if ((dice === 6) && (previousRoll === 6)) {
 			scores[activePlayer] = 0;
+			document.querySelector("#score-" + activePlayer).textContent = "0";
 			nextPlayer();
 		}
 		// Update the roundScore IF the rolled number was NOT 1.
