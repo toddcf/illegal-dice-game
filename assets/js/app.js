@@ -18,10 +18,16 @@ document.querySelector(".btn-roll").addEventListener("click", function() {
 		diceDOM.style.display = "block";
 		// Set the dice image to be the one corresponding to the random number that was generated:
 		diceDOM.src = "assets/img/dice-" + dice + ".png";
+		// If two sixes are rolled in a row, reset activePlayer's scores and switch to nextPlayer:
+		if ((dice === 6) && (previousRoll === 6)) {
+			scores[activePlayer] = 0;
+			nextPlayer();
+		}
 		// Update the roundScore IF the rolled number was NOT 1.
-		if (dice !== 1) {
+		else if (dice !== 1) {
 			roundScore += dice;
 			document.querySelector("#current-" + activePlayer).textContent = roundScore;
+			previousRoll = dice;
 		}
 		// If it WAS 1:
 		else {
