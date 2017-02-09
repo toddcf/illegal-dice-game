@@ -1,5 +1,5 @@
 // Declare all variables up front:
-var scores, roundScore, activePlayer, gamePlaying, previousRoll;
+var scores, roundScore, activePlayer, gamePlaying, previousRoll, diceA, diceB;
 
 // Call the function that INITIALIZES the game:
 init();
@@ -9,24 +9,32 @@ init();
 // The second argument is the function that will be called when this event happens, which in this case is an anonymous function because it will only be used inside this event listener.
 document.querySelector(".btn-roll").addEventListener("click", function() {
 	if (gamePlaying) {
-		// Generate a random number between 1 and 6 and store it in a variable called dice:
-		var dice = Math.floor(Math.random() * 6) + 1;
+		
+		diceA = rollDice();
+		diceB = rollDice();
+		console.log("Dice A: " + diceA + " | Dice B: " + diceB);
 		// Display the result:
 		// First store the selector in a variable so you don't have to keep writing out the entire selector over and over:
-		var diceDOM = document.querySelector(".dice");
+		var diceDOM = document.querySelector(".diceA");
 		// Un-hide the dice image:
 		diceDOM.style.display = "block";
 		// Set the dice image to be the one corresponding to the random number that was generated:
-		diceDOM.src = "assets/img/dice-" + dice + ".png";
-		// If two sixes are rolled in a row, reset activePlayer's scores and switch to nextPlayer:
-		if ((dice === 6) && (previousRoll === 6)) {
+		diceDOM.src = "assets/img/dice-" + diceA + ".png";
+
+		var diceDOM = document.querySelector(".diceB");
+		// Un-hide the dice image:
+		diceDOM.style.display = "block";
+		// Set the dice image to be the one corresponding to the random number that was generated:
+		diceDOM.src = "assets/img/dice-" + diceB + ".png";
+		// If two sixes are rolled, reset activePlayer's scores and switch to nextPlayer:
+		if ((diceA === 6) && (diceB === 6)) {
 			scores[activePlayer] = 0;
 			document.querySelector("#score-" + activePlayer).textContent = "0";
 			nextPlayer();
 		}
 		// Update the roundScore IF the rolled number was NOT 1.
-		else if (dice !== 1) {
-			roundScore += dice;
+		else if ((diceA !== 1) && (diceB !== 1)) {
+			roundScore += (diceA + diceB);
 			document.querySelector("#current-" + activePlayer).textContent = roundScore;
 		}
 		// If it WAS 1:
@@ -35,7 +43,7 @@ document.querySelector(".btn-roll").addEventListener("click", function() {
 			nextPlayer();
 		}
 		// Save this roll so it can be checked against the next roll:
-		previousRoll = dice;
+		// previousRoll = diceA;
 	}
 });
 
@@ -66,8 +74,9 @@ document.querySelector(".btn-hold").addEventListener("click", function() {
 		if (scores[activePlayer] >= winningScore) {
 			// Replace Player Name with the word WINNER:
 			document.querySelector("#name-" + activePlayer).textContent = "Winner!";
-			// Remove the img of the die:
-			document.querySelector(".dice").style.display = "none";
+			// Remove the images of the dice:
+			document.querySelector(".diceA").style.display = "none";
+			document.querySelector(".diceB").style.display = "none";
 			// Add WINNER class to activePlayer:
 			document.querySelector(".player-" + activePlayer + "-panel").classList.add("winner");
 			// Remove ACTIVE class from winner:
@@ -91,7 +100,13 @@ function nextPlayer() {
 	document.querySelector(".player-0-panel").classList.toggle("active");
 	document.querySelector(".player-1-panel").classList.toggle("active");
 
-	document.querySelector(".dice").style.display = "none";
+	document.querySelector(".diceA").style.display = "none";
+	document.querySelector(".diceB").style.display = "none";
+}
+
+function rollDice() {
+	// Generate a random number between 1 and 6 and store it in the variable dice:
+	return Math.floor(Math.random() * 6) + 1;
 }
 
 // Event Listener for NEW GAME button, which calls the INIT function:
@@ -109,8 +124,9 @@ function init() {
 	activePlayer = 0;
 	// Set this STATE VARIABLE to TRUE so the system knows a game is in progress:
 	gamePlaying = true;
-	// Hide the dice img before the dice are rolled for the first time:
-	document.querySelector(".dice").style.display 		= "none";
+	// Hide the dice images before the dice are rolled for the first time:
+	document.querySelector(".diceA").style.display 		= "none";
+	document.querySelector(".diceB").style.display 		= "none";
 
 	// Display Global Scores as zero for both players:
 	document.getElementById("score-0").textContent 		= "0";
