@@ -1,6 +1,5 @@
 // Declare all variables up front:
 var scores, roundScore, activePlayer, gamePlaying, previousRoll;
-var winningScore = 100;
 
 // Call the function that INITIALIZES the game:
 init();
@@ -47,6 +46,22 @@ document.querySelector(".btn-hold").addEventListener("click", function() {
 		scores[activePlayer] += roundScore;
 		// Update UI to show new score:
 		document.querySelector("#score-" + activePlayer).textContent = scores[activePlayer];
+
+		// Get the winningScore value the player typed in, and save it in INPUT variable:
+		var input = document.querySelector(".winningScore").value;
+		// Declare winningScore variable:
+		var winningScore;
+
+		// Coerce all empty values (null, undefined, 0, or "") to false.
+		// Anything else is coerced to true.
+		// If no winning score was entered by player, default is 100.
+		if (input) {
+			winningScore = input
+		}
+		else {
+			winningScore = 100;
+		}
+
 		// If player won game:
 		if (scores[activePlayer] >= winningScore) {
 			// Replace Player Name with the word WINNER:
