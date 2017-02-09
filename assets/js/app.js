@@ -28,6 +28,7 @@ document.querySelector(".btn-roll").addEventListener("click", function() {
 		diceDOM.src = "assets/img/dice-" + diceB + ".png";
 		// If two sixes are rolled, reset activePlayer's scores and switch to nextPlayer:
 		if ((diceA === 6) && (diceB === 6)) {
+			alert("Oops! You rolled two sixes. Next player's turn.");
 			scores[activePlayer] = 0;
 			document.querySelector("#score-" + activePlayer).textContent = "0";
 			nextPlayer();
@@ -39,6 +40,7 @@ document.querySelector(".btn-roll").addEventListener("click", function() {
 		}
 		// If it WAS 1:
 		else {
+			alert("Oops! You rolled a one. Next player's turn.");
 			// Toggle to other player:
 			nextPlayer();
 		}

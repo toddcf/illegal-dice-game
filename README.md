@@ -22,4 +22,3 @@ FUTURE ITERATIONS:
 - Add link to my portfolio.
 - Add link to my GitHub.
 - Add gameplay instructions to HTML.
-- Make a display so that players know if they rolled a 1 or two sixes. Otherwise, they won't know why they just lost their turn.
