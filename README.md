@@ -9,7 +9,7 @@ GAME RULES:
 - BUT...
   - If the player rolls a 1, their ROUND score is reset to zero and it's the next player's turn.
   - If the player rolls two sixes, both their ROUND score and GLOBAL score are reset to zero and it's the next player's turn.
-- The first player to reach 100 points in their GLOBAL score wins the game.
+- The first player to reach 100 points (or whatever you've set it to) in their GLOBAL score wins the game.
 
 NEW CODING SKILLS LEARNED:
 
