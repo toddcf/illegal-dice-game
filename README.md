@@ -1,4 +1,5 @@
 # Illegal Dice Game
+![Illegal Dice Game](https://github.com/toddcf/illegal-dice-game/blob/master/assets/img/dice.jpg "Illegal Dice Game")
 
 GAME RULES:
 
