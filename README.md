@@ -22,4 +22,4 @@ FUTURE ITERATIONS:
 
 - Add link to my portfolio.
 - Add link to my GitHub.
-- Add gameplay instructions to HTML.
+- Add gameplay instructions to UI.
